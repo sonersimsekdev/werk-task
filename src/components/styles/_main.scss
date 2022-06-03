@@ -1,0 +1,19 @@
+$backgroundColor: #FFFFFF;
+$borderColor:#D48282;
+
+.main {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $backgroundColor;
+    border: 1px solid  $borderColor;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    color:#D48282;
+    .login-text {
+        color:red;
+    }
+}

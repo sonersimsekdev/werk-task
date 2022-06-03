@@ -1,0 +1,16 @@
+$font-stack: 'Roboto', sans-serif;
+$backgroundColor: #FBB1B1;
+$textColor: #8D4040;
+$font-size:28px;
+html,
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $backgroundColor;
+    font-family: $font-stack;
+    color: $textColor;
+    font-size: $font-size;
+}
