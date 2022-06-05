@@ -9,13 +9,12 @@ import { getAuth } from "firebase/auth";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDFVYfjfFl1oxpjTKgWal1tdVX0ZU2pL7Y",
-  authDomain: "werk-todo.firebaseapp.com",
-  projectId: "werk-todo",
-  storageBucket: "werk-todo.appspot.com",
-  messagingSenderId: "462949769504",
-  appId: "1:462949769504:web:efa55d35df9eb03352f745",
-  measurementId: "G-9NRGT2B3VT"
+  apiKey: "AIzaSyAPbXeJsBtPeEvkTehfixJtLWyg7W2-2xw",
+  authDomain: "werk-task.vercel.app",
+  projectId: "todo-56aa6",
+  storageBucket: "todo-56aa6.appspot.com",
+  messagingSenderId: "1029253731971",
+  appId: "1:1029253731971:web:f931d3cd5ed88f0315adb6"
 };
 
 // Initialize Firebase

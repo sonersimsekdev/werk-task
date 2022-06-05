@@ -10,21 +10,14 @@ export default function Main() {
             e.preventDefault()
     }
     const [email, SetEmail] = useState(null)
+    
     const actionCodeSettings = {
         // URL you want to redirect back to. The domain (www.example.com) for this
         // URL must be in the authorized domains list in the Firebase Console.
-        url: 'https://werk-task.vercel.app/',
+        url: 'localhost',
         // This must be true.
         handleCodeInApp: true,
-        iOS: {
-          bundleId: 'com.example.ios'
-        },
-        android: {
-          packageName: 'com.example.android',
-          installApp: true,
-          minimumVersion: '12'
-        },
-        dynamicLinkDomain: 'https://werk-task.vercel.app/?link=https://werk-task.vercel.app/'
+        dynamicLinkDomain: 'localhost'
       };
 
        async function login(){
@@ -42,7 +35,7 @@ export default function Main() {
             console.log(errorCode)
             console.log(errorMessage)
         });
-        alert("içerde")
+        console.log("içerde"+email)
       }
     return (
         <div className='main' >
