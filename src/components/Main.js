@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
-import {  sendSignInLinkToEmail } from "firebase/auth";
+import {  isSignInWithEmailLink, sendSignInLinkToEmail, signInWithEmailLink } from "firebase/auth";
 import { auth } from '../firebase/firebase';
 import "./styles/_main.scss"
 import "./styles/_input.scss"
@@ -14,10 +14,10 @@ export default function Main() {
     const actionCodeSettings = {
         // URL you want to redirect back to. The domain (www.example.com) for this
         // URL must be in the authorized domains list in the Firebase Console.
-        url: 'localhost',
+        url: 'https://werk-task.vercel.app/',
         // This must be true.
         handleCodeInApp: true,
-        dynamicLinkDomain: 'localhost'
+        dynamicLinkDomain: 'https://werktodo.page.link/6SuK'
       };
 
        async function login(){
@@ -27,6 +27,7 @@ export default function Main() {
             // Save the email locally so you don't need to ask the user for it again
             // if they open the link on the same device.
             window.localStorage.setItem('emailForSignIn', email);
+            
             // ...
         })
         .catch((error) => {
@@ -36,7 +37,13 @@ export default function Main() {
             console.log(errorMessage)
         });
         console.log("içerde"+email)
+
+        /*if(isSignInWithEmailLink(auth, emailLink)) {
+          await signInWithEmailLink(auth, 'user@example.com', emailLink);
+        }*/
       }
+
+      
     return (
         <div className='main' >
             <form action='' onSubmit={handleSubmit}>
