@@ -36,7 +36,7 @@ export default function Main() {
             console.log(errorCode)
             console.log(errorMessage)
         });
-        console.log("içerde"+email)
+        console.log("içerde "+email)
 
         /*if(isSignInWithEmailLink(auth, emailLink)) {
           await signInWithEmailLink(auth, 'user@example.com', emailLink);
