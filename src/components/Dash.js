@@ -2,11 +2,22 @@ import React, { useState } from 'react'
 import "./styles/_main.scss"
 import "./styles/_input.scss"
 import "./styles/_second.scss"
-export default function Second() {
-    const [stateName, SetStateName] = useState(false);
+import { useDispatch, useSelector } from 'react-redux';
+import { logout, selectUser } from '..//redux/features/userSlice';
+import { auth } from '../firebase/firebase';
+
+export default function Dash() {
+
+    const user = useSelector(selectUser);
+    const dispatch = useDispatch();
+    const logoutOfApp = () => {
+      dispatch(logout());
+      auth.signOut();
+    };
+
     return (
         <>
-            {stateName ? <div className='main todo-page'>
+          {user ? <div className='main todo-page'>
                 <div>Datepicker</div>
                 <div className='section-out'>
                     <div className='section-in'>
@@ -39,7 +50,9 @@ export default function Second() {
                     </div>
                 </div>
                 <div><input placeholder='+New' type="email" className='inputField'></input></div>
-            </div> :  <div className='main todo-page'><div><input placeholder='+New' type="email" className='inputField'></input></div></div>}
+                <div><button  type="button" onClick={logoutOfApp} className='button'>Log Out</button></div>
+            </div>
+            : ''}
         </>
     )
 }

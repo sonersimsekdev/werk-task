@@ -1,13 +1,27 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore/lite';
-//, collection, getDocs
-import { getAuth } from "firebase/auth";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+import { initializeApp } from 'firebase/app';
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  addDoc,
+  deleteDoc,
+  serverTimestamp,
+  doc,
+  orderBy,
+  limit,
+  onSnapshot,
+  query,
+} from 'firebase/firestore';
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signOut,
+} from 'firebase/auth';
+
 const firebaseConfig = {
   apiKey: "AIzaSyAPbXeJsBtPeEvkTehfixJtLWyg7W2-2xw",
   authDomain: "todo-56aa6.firebaseapp.com",
@@ -17,10 +31,29 @@ const firebaseConfig = {
   appId: "1:1029253731971:web:f931d3cd5ed88f0315adb6"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const auth = getAuth(app);
+// init firebase app
+initializeApp(firebaseConfig);
 
-export { auth };
-export default db;
+// init services
+const db = getFirestore();
+const auth = getAuth();
+
+export {
+  db,
+  collection,
+  getDocs,
+  addDoc,
+  deleteDoc,
+  serverTimestamp,
+  doc,
+  auth,
+  orderBy,
+  limit,
+  onSnapshot,
+  query,
+  createUserWithEmailAndPassword,
+  updateProfile,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signOut,
+};
