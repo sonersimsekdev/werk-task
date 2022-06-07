@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-import { db } from "../../firebase/firebase";
+import {  auth, db, collection} from '..//..//firebase/firebase';
+import { doc, setDoc } from "firebase/firestore";
 export const userSlice = createSlice({
   name: "user",
   initialState: {
@@ -16,8 +16,9 @@ export const userSlice = createSlice({
     },
     list(action) { },
     todoAdd(action) {
-      // Add a new document in collection "cities"
-     
+      setDoc(doc(db, "todos", "todo2"), {
+        task: "go inside",
+      });
     },
     todoUpdated(action) {},
     },
