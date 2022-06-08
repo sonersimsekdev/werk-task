@@ -1,11 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {  auth, db, collection} from '..//..//firebase/firebase';
-import { doc, setDoc } from "firebase/firestore";
+import { auth, db, collection } from '..//..//firebase/firebase';
+import { v4 as uuidv4 } from 'uuid';
+import { doc, setDoc ,Timestamp} from "firebase/firestore";
 export const userSlice = createSlice({
   name: "user",
   initialState: {
     user: null,
-    tasks: [],
+    tasks: [{
+      title:"",
+      id:""
+    }]
   },
   reducers: {
     login: (state, action) => {
@@ -14,15 +18,19 @@ export const userSlice = createSlice({
     logout: (state) => {
       state.user = null;
     },
-    list(action) { },
-    todoAdd(action) {
-      setDoc(doc(db, "todos", "todo2"), {
-        task: "go inside",
-      });
+    stateAdd: (state, action) => {
+      state.tasks.push(action.payload);
     },
-    todoUpdated(action) {},
+    list(action) { }, 
+    async todoAdd(action) { //not working
+      await setDoc(doc(db, "todos", uuidv4()), {
+        task: action.payload,
+        timeStamp: Timestamp.fromDate(new Date())
+      }, { capital: true }, { merge: true });
     },
-  });
-export const { todoAdd, todoUpdated, login, logout, list } = userSlice.actions;
+    todoUpdated(action) { },
+  },
+});
+export const { todoAdd, todoUpdated, login, logout, list, stateAdd } = userSlice.actions;
 export const selectUser = (state) => state.user.user;
 export default userSlice.reducer;
