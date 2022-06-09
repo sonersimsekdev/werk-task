@@ -136,6 +136,7 @@ export default function Dash() {
                                         {toggle ? (
                                             task.map((item) => (
                                                 <li
+                                                    key={item.id}
                                                     onDoubleClick={() => {
                                                         setToggle(false);
                                                     }}
