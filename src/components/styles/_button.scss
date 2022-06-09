@@ -1,0 +1,17 @@
+$backgroundColor :#faf7f7;
+$textColor:#ffffff;
+
+.buttonField {
+    width: 100%;
+    height: auto;
+    background-color: $backgroundColor;
+    border-radius: 3px;
+    border: none;
+    &:hover {
+        background-color: #ffeaea;
+    }
+    &:active {
+        background-color: #ffd8d8;
+    }
+  }
+  

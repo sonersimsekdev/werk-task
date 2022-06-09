@@ -1,5 +1,6 @@
-import "./styles/_main.scss"
+import "./styles/_login.scss"
 import "./styles/_input.scss"
+import "./styles/_button.scss"
 import React, { useState } from 'react'
 import {
     auth,
@@ -66,19 +67,20 @@ export default function Login() {
                 <input
                     placeholder='Password'
                     type="password"
-                    className='inputField'
+                    className='buttonField'
                     value={password}
                     onChange={(e) => setPassword(e.target.value)} />
 
                 <button
                     type='submit'
-                    className='button'
+                    className='buttonField'
                     onClick={loginToApp}
                 >Login
                 </button>
                 <button
+                
                     type="button"
-                    className='button'
+                    className='buttonField'
                     onClick={register}
                 >Register
                 </button>

@@ -7,9 +7,10 @@ export const userSlice = createSlice({
   initialState: {
     user: null,
     tasks: [{
-      title:"",
+      task:"",
+      timeStamp:{},
       id:""
-    }]
+    },]
   },
   reducers: {
     login: (state, action) => {
@@ -18,7 +19,7 @@ export const userSlice = createSlice({
     logout: (state) => {
       state.user = null;
     },
-    stateAdd: (state, action) => {
+    stateAdd: (state, action) => {//not working
       state.tasks.push(action.payload);
     },
     list(action) { }, 
